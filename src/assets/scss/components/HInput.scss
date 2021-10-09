@@ -1,0 +1,23 @@
+/**
+ * Style input
+ * @author CreatedBy: dbhuan (09/10/2021)
+ */
+
+@import "../variable";
+
+.input-box {
+    .input-box__label {
+        display: block;
+        margin: 8px auto;
+    }
+
+    .input-box__input {
+        height: 32px;
+        outline: none;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+

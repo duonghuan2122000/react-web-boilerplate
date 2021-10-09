@@ -25,7 +25,11 @@ const routes: IRoute[] = [
 	},
 	{
 		path: "/home",
-		component: lazy(() => import("views/Container"))
+		component: lazy(() => import("views/Container")),
+	},
+	{
+		path: "/demo",
+		component: lazy(() => import("views/Demo")),
 	},
 ];
 
