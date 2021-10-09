@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/**
+ * App
+ * @author CreatedBy: dbhuan (09/10/2021)
+ */
+import RouterView from "layouts/RouterView";
+import { Suspense } from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import routes from "router/Routes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<Router>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Switch>
+					{routes.map((route, i) => (
+						<RouterView key={i} {...route} />
+					))}
+				</Switch>
+			</Suspense>
+		</Router>
+	);
+};
 
 export default App;
