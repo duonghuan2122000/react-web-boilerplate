@@ -1,0 +1,65 @@
+/**
+ * style radio
+ * @author CreatedBy: dbhuan (09/10/2021)
+ */
+@import "../variable";
+
+/* chỉnh label (radio-box) */
+.radio-box {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	.radio-box__radio {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+
+		// khi radio được checked, thêm màu nền xanh
+		&:checked ~ .radio-box__checkmark {
+			// background-color: #2196f3;
+
+			// hiện checkmark khi radio được checked
+			&::after {
+				display: block;
+			}
+		}
+	}
+
+	/* tạo radio custom */
+	.radio-box__checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 25px;
+		width: 25px;
+		border: 1px solid #ccc;
+		border-radius: 50%;
+
+		// tạo checkmark/indicator (ẩn khi không được checked)
+		&::after {
+			content: "";
+			position: absolute;
+			display: none;
+			top: 4px;
+			left: 4px;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background: $color-primary;
+		}
+	}
+
+	// khi hover chuột vào radio chuyển sang màu nền xám
+	// &:hover .radio-box__radio ~ .radio-box__checkmark {
+	// 	background-color: #ccc;
+	// }
+}

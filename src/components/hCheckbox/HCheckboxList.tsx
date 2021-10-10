@@ -3,7 +3,7 @@
  * @author CreatedBy: dbhuan (09/10/2021)
  */
 
-import { FC, useEffect, useState } from "react";
+import { FC, Fragment, useEffect, useState } from "react";
 import HCheckbox, { ICheckboxProps } from "./HCheckbox";
 
 interface ICheckboxListProps {
@@ -33,7 +33,7 @@ const HCheckboxList: FC<ICheckboxListProps> = (props: ICheckboxListProps) => {
 			}
 		}
 		setCheckedList(newCheckedList);
-	}, [props.data]);
+	}, [props.data, props.checkedList]);
 
 	/**
 	 * Hàm được gọi khi một trong các checkbox thay đổi trạng thái
@@ -52,15 +52,16 @@ const HCheckboxList: FC<ICheckboxListProps> = (props: ICheckboxListProps) => {
 	};
 
 	return (
-		<div>
+		<Fragment>
 			{props.data.map((checkbox, index) => (
 				<HCheckbox
 					key={index}
+					className="mr-2"
 					{...checkbox}
 					onChange={(checked) => onChangeCheckbox(checked, index)}
 				/>
 			))}
-		</div>
+		</Fragment>
 	);
 };
 
