@@ -33,7 +33,8 @@ const HCheckboxList: FC<ICheckboxListProps> = (props: ICheckboxListProps) => {
 			}
 		}
 		setCheckedList(newCheckedList);
-	}, [props.data, props.checkedList]);
+		// eslint-disable-next-line
+	}, []);
 
 	/**
 	 * Hàm được gọi khi một trong các checkbox thay đổi trạng thái

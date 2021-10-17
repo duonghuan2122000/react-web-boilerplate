@@ -1,0 +1,31 @@
+/**
+ * Button style
+ * @author CreatedBy: dbhuan (10/10/2021)
+ */
+
+@import "../variable";
+
+.btn {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid $border-color;
+    padding: 0 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+
+    .btn__text {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        text-align: center;
+    }
+
+    // type các loại button
+    &.btn-primary {
+        background-color: $color-primary;
+        color: #fff;
+    }
+}

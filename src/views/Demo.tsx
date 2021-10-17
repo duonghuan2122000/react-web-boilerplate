@@ -3,11 +3,26 @@
  * @author CreatedBy: dbhuan (09/10/2021)
  */
 
+import HButton from "components/hButton/HButton";
 import HCheckbox, { ICheckboxProps } from "components/hCheckbox/HCheckbox";
 import HCheckboxList from "components/hCheckbox/HCheckboxList";
 import HInput from "components/hInput/HInput";
 import HRadio from "components/hRadio/HRadio";
-import { useState } from "react";
+import HDropdown from "components/hDropdown/HDropdown";
+import { useEffect, useRef, useState } from "react";
+import useFetch from "commons/hooks/useFetch";
+import { stat } from "fs";
+import useForm from "commons/hooks/useForm";
+
+class User {
+	fullName: string;
+	age: number;
+
+	constructor(fullName: string, age: number) {
+		this.fullName = fullName;
+		this.age = age;
+	}
+}
 
 const Demo = () => {
 	const [valInput, setValInput] = useState("");
@@ -33,8 +48,23 @@ const Demo = () => {
 		setCheckedList(newCheckedList || []);
 	};
 
+	const demoRef = useRef(null);
+
+	// eslint-disable-next-line
+	const { data } = useForm<User>({
+		initialValues: {
+			age: 1,
+			fullName: "Huân",
+		},
+	});
+
+	const state = useFetch("http://localhost:8080/test400", {method: "POST"});
+
+	if (state.data) console.log(state.data);
+	if (state.error) console.log(state.error);
+
 	return (
-		<div className="m-2">
+		<div className="m-2" ref={demoRef}>
 			<div className="m-2">
 				<HInput
 					placeholder="input"
@@ -97,8 +127,26 @@ const Demo = () => {
 				</div>
 			</div>
 
+			<hr />
+
 			<div className="m-2">
 				<HRadio label="radio" />
+			</div>
+
+			<hr />
+
+			<div className="m-2">
+				<HButton text="Button" onClick={() => alert("click")} />
+			</div>
+
+			<hr />
+
+			<div className="m-2">
+				<HDropdown
+					data={["Item 1", "Item 2", "Item 3"]}
+					renderToggle={() => <HButton text="Dropdown" />}
+					renderItem={(item) => <div>{item}</div>}
+				/>
 			</div>
 		</div>
 	);

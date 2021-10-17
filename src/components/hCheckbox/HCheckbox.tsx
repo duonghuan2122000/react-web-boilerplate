@@ -38,7 +38,8 @@ const HCheckbox: FC<ICheckboxProps> = (props: ICheckboxProps) => {
 				setChecked(false);
 			}
 		}
-	});
+		// eslint-disable-next-line
+	}, []);
 
 	// các sự kiện của checkbox
 	const listener = {

@@ -1,0 +1,39 @@
+/**
+ * Dropdown style
+ * @author CreatedBy: dbhuan (10/10/2021)
+ */
+
+@import "../variable";
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+
+	.dropdown__toggle {
+	}
+
+	.dropdown__content {
+		position: absolute;
+		border: 1px solid #ccc;
+		white-space: nowrap;
+		min-width: 100%;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+		transition: 0.5s;
+		z-index: 10;
+		border-radius: 4px;
+
+		&.hide {
+			display: none;
+		}
+	}
+
+	.dropdown__item {
+		padding: 8px 16px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $color-primary;
+			color: #fff;
+		}
+	}
+}
